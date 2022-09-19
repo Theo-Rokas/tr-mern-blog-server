@@ -15,7 +15,7 @@ app.use(express.json())
 app.use("/images", express.static(path.join(__dirname, "/images")))
 
 mongoose.connect(
-    process.env.MONGO_URL || "mongodb+srv://admin:CPvOWi99qeYYYpf8@cluster0.5s01e.mongodb.net/blog?retryWrites=true&w=majority" , {
+    process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -40,6 +40,6 @@ app.use("/api/auth", authRoute)
 app.use("/api/users", userRoute)
 app.use("/api/posts", postRoute)
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Backend is running.")
 })
